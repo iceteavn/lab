@@ -1,0 +1,58 @@
+/**
+ *	www.templatemo.com
+ */
+
+/* HTML document is loaded. DOM is ready.
+-----------------------------------------*/
+$(document).ready(function(){
+
+	// Mobile menu
+	$('.mobile-menu-icon').click(function(){
+		$('.tm-nav').slideToggle();
+	});
+
+	$( window ).resize(function() {
+		if($( window ).width() > 767) {
+			$('.tm-nav').show();
+		} else {
+			$('.tm-nav').hide();
+		}
+	});
+
+  // http://stackoverflow.com/questions/2851663/how-do-i-simulate-a-hover-with-a-touch-in-touch-enabled-browsers
+  $('body').bind('touchstart', function() {});
+
+  // Smooth scroll
+  // https://css-tricks.com/snippets/jquery/smooth-scrolling/
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+
+    <!--Start of Tawk.to Script-->
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5a3c6fcabbdfe97b137fccf9/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+    <!--End of Tawk.to Script-->
+
+});
+
+$(window).load(function() {
+	// Remove preloader
+	// https://ihatetomatoes.net/create-custom-preloading-screen/
+	$('body').addClass('loaded');
+});
